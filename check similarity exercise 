@@ -1,0 +1,90 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP7gMw2B1DSAuvdfuDOz2Yw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/roger977/Habimana_2409001107/blob/main/check%20similarity%20exercise%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random"
+      ],
+      "metadata": {
+        "id": "vQNFQFg_HkJ-"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def jaccard_similarity(file1, file2):\n",
+        "  # split texts into sets of words\n",
+        "  set1= set(file1.split())\n",
+        "  set2= set(file2.split())\n",
+        "\n",
+        "  #find intersection and union\n",
+        "  intersection = set1.intersection(set2)\n",
+        "  union = set1.union(set2)\n",
+        "\n",
+        "  #calculate jaccard similarity\n",
+        "  similarity = len(intersection) / len(union)\n",
+        "\n",
+        "  #return similarity and intersection words\n",
+        "  return similarity, intersection\n",
+        "\n",
+        "#input texts\n",
+        "file1 = \"History is the systematic study of the past.\"\n",
+        "file2 = \"History is the systematic study of the past this is just for practice.\"\n",
+        "\n",
+        "#calculate similarity and  get common words\n",
+        "similarity, common_words = jaccard_similarity(file1, file2)\n",
+        "\n",
+        "#print results\n",
+        "print(f\"similarity: {similarity:.2f}\")\n",
+        "print(f\"common words: {common_words}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MoCOPsvfIrvF",
+        "outputId": "070ef230-95a4-4797-9970-3706b585d539"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "similarity: 0.50\n",
+            "common words: {'the', 'of', 'study', 'History', 'is', 'systematic'}\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
